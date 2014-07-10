@@ -5,5 +5,17 @@
 	version="3.0">
 	<display-name>WearIT</display-name>
 	
+	<servlet-mapping>
+		<servlet-name>wearIt</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name>wearIt</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+	</servlet>
+	
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
 </web-app>
