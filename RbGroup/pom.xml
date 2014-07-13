@@ -7,6 +7,13 @@
 	<packaging>war</packaging>
 
 	<dependencies>
+		
+		<!-- logback for logging -->
+		<dependency>
+    		<groupId>ch.qos.logback</groupId>
+    		<artifactId>logback-classic</artifactId>
+    		<version>1.0.13</version>
+		</dependency>
 
 		<!-- Servlet -->
 		<dependency>
