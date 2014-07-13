@@ -52,6 +52,7 @@
 				<configuration>
 					<wtpversion>2.0</wtpversion>
 					<wtpContextName>/</wtpContextName>
+					<downloadSources>true</downloadSources>
 				</configuration>
 			</plugin>
 			<plugin>
