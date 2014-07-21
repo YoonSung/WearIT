@@ -1,10 +1,12 @@
 package kr.wearit.web;
 
 import static org.hamcrest.CoreMatchers.notNullValue;
-import static org.junit.Assert.assertThat;
+import static org.junit.Assert.*;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -13,11 +15,28 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @ContextConfiguration("classpath:/applicationContext.xml")
 public class UserDaoTest {
 	
+	private static final Logger logger = LoggerFactory.getLogger(UserDaoTest.class);
+	
 	@Autowired
 	UserDao dao;
 	
 	@Test
-	public void create() {
-		assertThat(dao, notNullValue());
+	public void findById() {
+		User user = dao.findById("Yoonsung");
+		logger.info("user = {}", user);
+		
+		assertEquals(
+				new User("Yoonsung", "yoon", "정윤성", "estrella@nhnnext.org"),
+				user
+		);
+		
 	}
+	
+	//검증을 위해 findById 함수를 먼저 만든다.
+//	@Test
+//	public void create() {
+//		User user = new User("lvev9925", "password", "JungYoonSung", "lvev9925@naver.com");
+//		dao.create(user);
+//		assertThat(dao, notNullValue());
+//	}
 }

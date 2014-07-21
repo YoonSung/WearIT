@@ -5,6 +5,13 @@ public class User {
 	private String password;
 	private String name;
 	private String email;
+
+	public User(String userId, String password, String name, String email) {
+		this.userId = userId;
+		this.password = password;
+		this.name = name;
+		this.email = email;
+	}
 	
 	public String getUserId() {
 		return userId;
@@ -34,5 +41,37 @@ public class User {
 	public String toString() {
 		return "User [userId=" + userId + ", password=" + password + ", name="
 				+ name + ", email=" + email + "]";
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		User other = (User) obj;
+		if (email == null) {
+			if (other.email != null)
+				return false;
+		} else if (!email.equals(other.email))
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		if (password == null) {
+			if (other.password != null)
+				return false;
+		} else if (!password.equals(other.password))
+			return false;
+		if (userId == null) {
+			if (other.userId != null)
+				return false;
+		} else if (!userId.equals(other.userId))
+			return false;
+		return true;
 	}
 }

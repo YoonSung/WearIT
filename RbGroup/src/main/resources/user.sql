@@ -1,6 +1,6 @@
-DROP TABLE IF EXISTS USERS;
+DROP TABLE IF EXISTS tbl_user;
 
-CREATE TABLE USERS ( 
+CREATE TABLE tbl_user ( 
 	userId          varchar(12)		NOT NULL, 
 	password		varchar(12)		NOT NULL,
 	name			varchar(20)		NOT NULL,
@@ -9,4 +9,4 @@ CREATE TABLE USERS (
 	PRIMARY KEY               (userId)
 );
 
-INSERT INTO USERS VALUES('Yoonsung', 'yoon', '정윤성', 'estrella@nhnnext.org');
+INSERT INTO tbl_user VALUES('Yoonsung', 'yoon', '정윤성', 'estrella@nhnnext.org');
