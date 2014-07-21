@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -16,7 +17,9 @@ public class UserController {
 	private UserDao userDao;
 	
 	@RequestMapping("/user/register")
-	public String registerView() {
+	public String registerView(Model model) {
+		//model.addAttribute("user", new User());
+		model.addAttribute("user", new User("TestAttribute", "testPassword", "Yoonsung","test@navercom"));
 		return "/user/register";
 	}
 	
