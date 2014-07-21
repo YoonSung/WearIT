@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<comment>Databse Connection Property file</comment>
+	
+	<!-- Database Access Infomation -->
+	<entry key="database.driverClassName">org.h2.Driver</entry>
+	<entry key="database.url">jdbc:h2:~/Web</entry>
+	<entry key="database.username">yoon</entry>
+	<entry key="database.password"></entry>
+</properties>
