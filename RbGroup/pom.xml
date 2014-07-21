@@ -46,6 +46,13 @@
 			<version>1.4</version>
 		</dependency>
 
+		<!-- Spring JDBC Util Wrapper -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>4.0.6.RELEASE</version>
+		</dependency>
+
 		<!-- JUnit Test -->
 		<dependency>
 			<groupId>junit</groupId>
