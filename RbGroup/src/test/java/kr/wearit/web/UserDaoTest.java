@@ -32,11 +32,11 @@ public class UserDaoTest {
 		
 	}
 	
-	//검증을 위해 findById 함수를 먼저 만든다.
-//	@Test
-//	public void create() {
-//		User user = new User("lvev9925", "password", "JungYoonSung", "lvev9925@naver.com");
-//		dao.create(user);
-//		assertThat(dao, notNullValue());
-//	}
+	@Test
+	public void create() {
+		User user = new User("lvev9925", "password", "JungYoonSung", "lvev9925@naver.com");
+		dao.create(user);
+		
+		assertEquals(user, dao.findById(user.getUserId()));
+	}
 }
