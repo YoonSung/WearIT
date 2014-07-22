@@ -27,24 +27,28 @@
 						<label class="control-label" for="userId">사용자 아이디</label>
 						<div class="controls">
 							<SpringForm:input path="userId"/>
+							<SpringForm:errors path="userId" />
 						</div>
 					</div>
 					<div class="control-group">
 						<label class="control-label" for="password">비밀번호</label>
 						<div class="controls">
 							<SpringForm:password id="password" path="password"/>
+							<SpringForm:errors id="password" path="password"/>
 						</div>
 					</div>
 					<div class="control-group">
 						<label class="control-label" for="name">이름</label>
 						<div class="controls">
 							<SpringForm:input id="name" path="name"/>
+							<SpringForm:errors id="name" path="name"/>
 						</div>
 					</div>
 					<div class="control-group">
 						<label class="control-label" for="email">이메일</label>
 						<div class="controls">
 							<SpringForm:input id="email" path="email" />
+							<SpringForm:errors id="email" path="email" />
 						</div>
 					</div>
 					<div class="control-group">
