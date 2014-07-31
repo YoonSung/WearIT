@@ -9,6 +9,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 public class User {
 	
 	//@NotEmpty @Min(4) @Max(12)
+	//Not null은 빈 "" value가 전달되기 때문에 NotEmpty를 사용
 	@NotEmpty @Size(min=4, max=12)
 	private String userId;
 	
