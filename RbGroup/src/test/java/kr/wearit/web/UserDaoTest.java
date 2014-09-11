@@ -1,6 +1,7 @@
 package kr.wearit.web;
 
 import static org.junit.Assert.assertEquals;
+import kr.wearit.domain.User;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

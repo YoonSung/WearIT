@@ -1,4 +1,4 @@
-package kr.wearit.web;
+package kr.wearit.domain;
 
 import javax.validation.constraints.Size;
 

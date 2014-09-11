@@ -10,6 +10,8 @@ import javax.validation.Validation;
 import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
 
+import kr.wearit.domain.User;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.slf4j.Logger;

@@ -6,6 +6,8 @@ import java.sql.SQLException;
 import javax.annotation.PostConstruct;
 import javax.sql.DataSource;
 
+import kr.wearit.domain.User;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.io.ClassPathResource;
