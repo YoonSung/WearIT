@@ -1,5 +1,6 @@
 package kr.wearit.web;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import kr.wearit.domain.Authentication;
@@ -51,7 +52,7 @@ public class UserController {
 	}
 	
 	@RequestMapping(value="/user/login", method=RequestMethod.POST)
-	public String login(@Valid Authentication authentication, BindingResult bindingResult, Model model) {
+	public String login(@Valid Authentication authentication, BindingResult bindingResult, Model model, HttpSession session) {
 		
 		if (bindingResult.hasErrors()) {
 			for (ObjectError error : bindingResult.getAllErrors()) {
@@ -72,8 +73,7 @@ public class UserController {
 			return "/user/login";
 		}
 		
-		//TODO Session에 로그인 데이터 저장
-		
+		session.setAttribute("userId", authentication.getUserId());
 		return "redirect:/";
 	}
 }
