@@ -87,4 +87,18 @@ public class UserController {
 		
 		return "/user/register";
 	}
+	
+	@RequestMapping(value="/user/register", method=RequestMethod.PUT)
+	public String modify(@Valid User user, BindingResult bindingResult) {
+		
+		if (bindingResult.hasErrors()) {
+			logger.error("bindingReulst has Error","bindingResult Error");
+			return "/user/register";
+		}
+			
+		logger.info("User : {}", user);
+		userDao.update(user);
+		logger.info("selectUser : {}", userDao.findById(user.getUserId()));
+		return "redirect:/";
+	}
 }
