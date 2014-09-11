@@ -60,12 +60,19 @@ public class UserController {
 			return "/user/login";
 		}
 		
-		if (userDao.findById(authentication.getUserId()) == null) {
+		User searchUser = userDao.findById(authentication.getUserId());
+		
+		if (searchUser == null) {
 			model.addAttribute("errorMessage", "아이디가 존재하지 않습니다");
 			return "/user/login";
 		}
 		
-		//TODO 아이디가 존재하나 비밀번호가 다를경우
+		if (! searchUser.isPasswordEqual(authentication.getPassword())) {
+			model.addAttribute("errorMessage", "비밀번호가 틀렸습니다.");
+			return "/user/login";
+		}
+		
+		//TODO Session에 로그인 데이터 저장
 		
 		return "redirect:/";
 	}

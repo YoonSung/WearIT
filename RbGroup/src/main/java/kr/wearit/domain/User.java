@@ -92,4 +92,8 @@ public class User {
 			return false;
 		return true;
 	}
+
+	public boolean isPasswordEqual(String requestPassword) {
+		return this.password.equals(requestPassword);
+	}
 }

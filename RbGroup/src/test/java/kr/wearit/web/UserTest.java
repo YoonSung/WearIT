@@ -1,7 +1,7 @@
 package kr.wearit.web;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import static org.junit.Assert.*;
 
 import java.util.Set;
 
@@ -48,6 +48,14 @@ public class UserTest {
 		for (ConstraintViolation<User> constraintViolation : constraintViolations) {
 			logger.info(constraintViolation.getMessage());
 		}
+	}
+	
+	@Test
+	public void passwordComparison() throws Exception {
+		User user = new User("lvev9925", "password", "JungYoonSung", "lvev9925@naver.com");
+		
+		assertTrue(user.isPasswordEqual("password"));
+		assertFalse(user.isPasswordEqual("password2"));
 	}
 	
 }
