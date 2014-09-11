@@ -51,7 +51,7 @@ public class UserController {
 	}
 	
 	@RequestMapping(value="/user/login", method=RequestMethod.POST)
-	public String login(@Valid Authentication authentication, BindingResult bindingResult) {
+	public String login(@Valid Authentication authentication, BindingResult bindingResult, Model model) {
 		
 		if (bindingResult.hasErrors()) {
 			for (ObjectError error : bindingResult.getAllErrors()) {
@@ -61,6 +61,10 @@ public class UserController {
 		}
 		
 		//TODO 아이디가 존재하지 않을경우
+		if (userDao.findById(authentication.getUserId()) == null) {
+			model.addAttribute("errorMessage", "아이디가 존재하지 않습니다");
+			return "/user/login";
+		}
 		
 		//TODO 아이디가 존재하나 비밀번호가 다를경우
 		
