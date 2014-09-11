@@ -101,4 +101,10 @@ public class UserController {
 		logger.info("selectUser : {}", userDao.findById(user.getUserId()));
 		return "redirect:/";
 	}
+	
+	@RequestMapping("/user/logout")
+	public String logout(HttpSession session) {
+		session.removeAttribute("userId");
+		return "redirect:/";
+	}
 }
