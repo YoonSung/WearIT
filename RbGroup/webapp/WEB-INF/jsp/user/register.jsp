@@ -18,7 +18,15 @@
 			<div class="span12">
 				<section id="typography">
 				<div class="page-header">
-					<h1>회원가입</h1>
+					<c:choose>
+						<c:when test="${not empty sessionScope.userId }">
+							<c:set var="title" value="개인정보 수정"></c:set>
+						</c:when>
+						<c:otherwise>
+							<c:set var="title" value="회원가입"></c:set>
+						</c:otherwise>
+					</c:choose>
+					<h1><c:out value="${title}"/></h1>
 				</div>
 			
 				
@@ -26,7 +34,14 @@
 					<div class="control-group">
 						<label class="control-label" for="userId">사용자 아이디</label>
 						<div class="controls">
-							<SpringForm:input path="userId"/>
+							<c:choose>
+								<c:when test="${empty sessionScope.userId} }">
+									<SpringForm:input path="userId"/>
+								</c:when>
+								<c:otherwise>
+									<div>${sessionScope.userId}</div>
+								</c:otherwise>
+							</c:choose>
 							<SpringForm:errors path="userId" />
 						</div>
 					</div>

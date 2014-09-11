@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -75,5 +76,15 @@ public class UserController {
 		
 		session.setAttribute("userId", authentication.getUserId());
 		return "redirect:/";
+	}
+	
+	@RequestMapping("/user/{userId}/form")
+	public String modifyView(@PathVariable String userId, Model model) {
+		
+		//TODO Id값의 존재유무를 체크
+		//TODO 현재 SessionId와 요청 Id가 동일한지 체크
+		model.addAttribute("user", userDao.findById(userId));
+		
+		return "/user/register";
 	}
 }
