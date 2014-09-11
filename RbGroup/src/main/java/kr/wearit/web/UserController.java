@@ -60,7 +60,6 @@ public class UserController {
 			return "/user/login";
 		}
 		
-		//TODO 아이디가 존재하지 않을경우
 		if (userDao.findById(authentication.getUserId()) == null) {
 			model.addAttribute("errorMessage", "아이디가 존재하지 않습니다");
 			return "/user/login";
