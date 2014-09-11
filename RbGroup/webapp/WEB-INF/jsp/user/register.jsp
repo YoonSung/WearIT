@@ -20,17 +20,19 @@
 				<div class="page-header">
 					<c:choose>
 						<c:when test="${not empty sessionScope.userId }">
-							<c:set var="title" value="개인정보 수정"></c:set>
+							<c:set var="title" value="개인정보 수정" />
+							<c:set var="method" value="put" />
 						</c:when>
 						<c:otherwise>
-							<c:set var="title" value="회원가입"></c:set>
+							<c:set var="title" value="회원가입" />
+							<c:set var="method" value="post" />
 						</c:otherwise>
 					</c:choose>
 					<h1><c:out value="${title}"/></h1>
 				</div>
 			
 				
-				<SpringForm:form commandName="user" cssClass="form-horizontal" action="/user/register" method="post">
+				<SpringForm:form commandName="user" cssClass="form-horizontal" action="/user/register" method="${method}">
 					<div class="control-group">
 						<label class="control-label" for="userId">사용자 아이디</label>
 						<div class="controls">
@@ -39,6 +41,7 @@
 									<SpringForm:input path="userId"/>
 								</c:when>
 								<c:otherwise>
+									<SpringForm:hidden path="userId"/>
 									<div>${sessionScope.userId}</div>
 								</c:otherwise>
 							</c:choose>
