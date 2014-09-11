@@ -11,6 +11,14 @@ public class Authentication {
 	@NotEmpty @Size(min=4, max=12)
 	private String password;
 
+	public Authentication(){};
+	
+	public Authentication(String userId, String password) {
+		super();
+		this.userId = userId;
+		this.password = password;
+	}
+
 	public String getUserId() {
 		return userId;
 	}
