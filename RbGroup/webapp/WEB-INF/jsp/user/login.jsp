@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="SpringForm" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="SpringForm"
+	uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -20,24 +21,25 @@
 				<div class="page-header">
 					<h1>로그인</h1>
 				</div>
-			
-				
-				<SpringForm:form modelAttribute="auth" cssClass="form-horizontal" action="/user/login" method="post">
+
+
+				<SpringForm:form commandName="authentication" cssClass="form-horizontal"
+					action="/user/login" method="post">
 					<div class="control-group">
 						<label class="control-label" for="userId">사용자 아이디</label>
 						<div class="controls">
-							<SpringForm:input path="userId"/>
+							<SpringForm:input path="userId" />
 							<SpringForm:errors path="userId" />
 						</div>
 					</div>
 					<div class="control-group">
 						<label class="control-label" for="password">비밀번호</label>
 						<div class="controls">
-							<SpringForm:password id="password" path="password"/>
-							<SpringForm:errors id="password" path="password"/>
+							<SpringForm:password id="password" path="password" />
+							<SpringForm:errors id="password" path="password" />
 						</div>
 					</div>
-					
+
 					<div class="control-group">
 						<div class="controls">
 							<button type="submit" class="btn btn-primary">로그인</button>

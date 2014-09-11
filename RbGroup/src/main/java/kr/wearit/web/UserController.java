@@ -45,13 +45,13 @@ public class UserController {
 	}
 	
 	@RequestMapping("/user/login/form")
-	public String loginView(Authentication auth, Model model) {
-		model.addAttribute("auth", auth);
+	public String loginView(Model model) {
+		model.addAttribute("authentication", new Authentication());
 		return "/user/login";
 	}
 	
 	@RequestMapping(value="/user/login", method=RequestMethod.POST)
-	public String login(@Valid Authentication auth, BindingResult bindingResult) {
+	public String login(@Valid Authentication authentication, BindingResult bindingResult) {
 		
 		if (bindingResult.hasErrors()) {
 			for (ObjectError error : bindingResult.getAllErrors()) {
@@ -64,6 +64,6 @@ public class UserController {
 		
 		//TODO 아이디가 존재하나 비밀번호가 다를경우
 		
-		return null;
+		return "redirect:/";
 	}
 }
