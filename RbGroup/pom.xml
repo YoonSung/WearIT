@@ -8,6 +8,7 @@
 
 	<properties>
 		<org.springframework.version>4.0.6.RELEASE</org.springframework.version>
+		<database.h2.version>1.4.180</database.h2.version>
 	</properties>
 
 	<dependencies>
@@ -47,7 +48,7 @@
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
-			<version>1.4.180</version>
+			<version>${database.h2.version}</version>
 		</dependency>
 
 		<!-- Connection Pool -->
@@ -119,7 +120,7 @@
 			<artifactId>mybatis-spring</artifactId>
 			<version>1.2.2</version>
 		</dependency>
-		
+
 	</dependencies>
 
 	<build>
@@ -163,6 +164,23 @@
 					<target>1.8</target>
 					<encoding>utf-8</encoding>
 				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.flywaydb</groupId>
+				<artifactId>flyway-maven-plugin</artifactId>
+				<version>3.0</version>
+				<configuration>
+					<url>jdbc:h2:~/Web</url>
+					<user>yoon</user>
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>com.h2database</groupId>
+						<artifactId>h2</artifactId>
+						<version>${database.h2.version}</version>
+					</dependency>
+				</dependencies>
 			</plugin>
 		</plugins>
 	</build>

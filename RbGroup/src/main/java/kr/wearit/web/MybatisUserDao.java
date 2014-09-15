@@ -1,20 +1,13 @@
 package kr.wearit.web;
 
-import javax.annotation.PostConstruct;
 import javax.sql.DataSource;
 
 import kr.wearit.domain.User;
 
 import org.apache.ibatis.session.SqlSession;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.jdbc.datasource.init.DatabasePopulatorUtils;
-import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
 
 public class MybatisUserDao implements UserDao {
 	
-	private static final Logger logger = LoggerFactory.getLogger(MybatisUserDao.class);
 	private SqlSession sqlSession;
 	private DataSource dataSource;
 	
@@ -28,15 +21,6 @@ public class MybatisUserDao implements UserDao {
 	
 	public DataSource getDataSource() {
 		return dataSource;
-	}
-	
-	@PostConstruct
-	public void create() {
-		ResourceDatabasePopulator populator = new ResourceDatabasePopulator();
-		populator.addScript(new ClassPathResource("user.sql"));
-		DatabasePopulatorUtils.execute(populator, getDataSource());
-		
-		logger.info("Database Initialized Success!!");
 	}
 	
 	@Override
