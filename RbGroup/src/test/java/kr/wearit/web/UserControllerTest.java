@@ -17,7 +17,7 @@ import org.springframework.test.web.servlet.MockMvc;
 public class UserControllerTest {
 
 	@Mock
-	private UserDao userDao;
+	private MybatisUserDao userDao;
 	
 	@InjectMocks
 	private UserController userController;

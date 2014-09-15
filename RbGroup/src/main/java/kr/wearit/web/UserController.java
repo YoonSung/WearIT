@@ -23,7 +23,7 @@ public class UserController {
 	private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 	
 	@Autowired
-	private UserDao userDao;
+	private MybatisUserDao userDao;
 	
 	@RequestMapping("/user/register")
 	public String registerView(Model model) {

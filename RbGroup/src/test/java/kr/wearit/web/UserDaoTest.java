@@ -1,6 +1,6 @@
 package kr.wearit.web;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 import kr.wearit.domain.User;
 
 import org.junit.Test;
@@ -13,10 +13,10 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:/applicationContext.xml")
-public class JdbcUserDaoTest {
-	
-	private static final Logger logger = LoggerFactory.getLogger(JdbcUserDaoTest.class);
-	
+public class UserDaoTest {
+
+	private static final Logger logger = LoggerFactory.getLogger(UserDaoTest.class);
+
 	@Autowired
 	UserDao dao;
 	
