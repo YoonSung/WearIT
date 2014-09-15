@@ -7,7 +7,7 @@
 	SELECT * FROM tbl_user WHERE userId = #{userId}
   </select>
   
-  <insert id="create" parameterType="kr.wearit.domain.User">
+  <insert id="create" parameterType="User">
   	INSERT INTO tbl_user VALUES(#{userId}, #{password}, #{name}, #{email})
   </insert>
 </mapper>
