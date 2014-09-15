@@ -12,7 +12,7 @@
 		<property name="password" value="${database.password}" />
 	</bean>
 
-	<bean id="userDao" class="kr.wearit.web.UserDao">
+	<bean id="userDao" class="kr.wearit.web.JdbcUserDao">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 
