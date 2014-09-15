@@ -1,8 +1,13 @@
 package kr.wearit.web;
 
 import static org.junit.Assert.*;
-import kr.wearit.domain.User;
 
+import java.lang.reflect.Proxy;
+
+import kr.wearit.domain.User;
+import kr.wearit.handler.PerformanceHandler;
+
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -26,7 +31,13 @@ public class UserDaoTest {
 	
 	@Test
 	public void findById() {
-		User user = dao.findById("Yoonsung");
+		UserDao userDao = (UserDao) Proxy.newProxyInstance(
+				getClass().getClassLoader(),
+				new Class[] { UserDao.class},
+				new PerformanceHandler(dao));
+		
+		
+		User user = userDao.findById("Yoonsung");
 		logger.info("user = {}", user);
 		
 		assertEquals(
