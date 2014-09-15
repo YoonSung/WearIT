@@ -13,9 +13,9 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:/applicationContext.xml")
-public class UserDaoTest {
+public class JdbcUserDaoTest {
 	
-	private static final Logger logger = LoggerFactory.getLogger(UserDaoTest.class);
+	private static final Logger logger = LoggerFactory.getLogger(JdbcUserDaoTest.class);
 	
 	@Autowired
 	UserDao dao;

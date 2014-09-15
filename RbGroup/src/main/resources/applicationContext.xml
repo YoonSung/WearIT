@@ -11,11 +11,18 @@
 		<property name="username" value="${database.username}" />
 		<property name="password" value="${database.password}" />
 	</bean>
-
+	
+	<!-- 
 	<bean id="userDao" class="kr.wearit.web.JdbcUserDao">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
-
+	  -->
+	  
+	<bean id="userDao" class="kr.wearit.web.MybatisUserDao">
+		<property name="sqlSession" ref="sqlSession" />
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+ 	
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<property name="typeAliasesPackage" value="kr.wearit.domain"></property>
