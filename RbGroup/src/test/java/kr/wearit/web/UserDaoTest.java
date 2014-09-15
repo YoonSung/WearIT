@@ -4,6 +4,8 @@ import static org.junit.Assert.*;
 
 import java.lang.reflect.Proxy;
 
+import javax.annotation.Resource;
+
 import kr.wearit.domain.User;
 import kr.wearit.handler.PerformanceHandler;
 
@@ -26,7 +28,7 @@ public class UserDaoTest {
 
 	private static final Logger logger = LoggerFactory.getLogger(UserDaoTest.class);
 
-	@Autowired
+	@Resource(name="userDaoFactoryBean")
 	UserDao dao;
 	
 	@Test
